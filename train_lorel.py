@@ -31,6 +31,9 @@ import time
 import matplotlib.pyplot as plt
 
 
+# Populate before running
+_WANDB_USER_NAME = None
+
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('batchsize', 32,
                      'Batch Size')
@@ -72,7 +75,10 @@ flags.DEFINE_integer('holdout', 0,
                      'Holdout faucet left and black mug right tasks')
 flags.DEFINE_string('resume', None,
                     'What ckpt to resume from')
-flags.DEFINE_string('wandb_entity', "surajn"
+assert _WANDB_USER_NAME is not None, ("Please populate "
+                                      "_WANDB_USER_NAME before proceeding"
+                                    )
+flags.DEFINE_string('wandb_entity', _WANDB_USER_NAME,
                     'Weights and Biases Entity')
 flags.DEFINE_string('wandb_project', "lang",
                     'Weights and Biases Project')

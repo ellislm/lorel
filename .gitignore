@@ -103,3 +103,4 @@ celerybeat.pid
 *.sage.py
 
 data/
+deps/
